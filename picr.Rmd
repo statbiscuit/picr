@@ -67,7 +67,7 @@ ggplot() +
 
 ### Change the colour 
 
-Modify the following code to plot a <p style="color:red;">red</p> `cat`:
+Modify the following code to plot a <span style="color:red;">red</span> `cat`:
 
 ```{r print-colour, exercise = TRUE, exercise.eval = TRUE}
 ggplot() +
@@ -84,10 +84,17 @@ ggplot() +
 
 Modify the following code to plot a species of your choice in a colour of your choice, options are `antelope`, `bug`, `cat`, `dog`, `human`, `kingfisher`, `megalosaurus`, `nightshade`, `poison_frog`, `random`, `ray`, `salamander`,`seal`, `swifts`, and `worm`.        
 
-
-```{r print-species, exercise = TRUE, exercise.eval = TRUE, exercise.lines=3:4}
+```{r prepare-species, echo = FALSE}
 ran <- image_list(start = sample(1:image_count(), 1), length = 1)[[1]]$uid
 random <- image_data(ran, size = "512")[[1]]
-ggplot() +
-  phylopic(nightshade, col = "grey")
 ```
+
+
+```{r print-species, exercise = TRUE, exercise.eval = TRUE, exercise.setup = "prepare-species"}
+ggplot() +
+  phylopic(nightshade, col = "purple")
+```
+
+---
+
+Using Scott Chamberlain (2020). `rphylopic`: Get 'Silhouettes' of 'Organisms' from 'Phylopic'. R package version 0.3.0.[https://CRAN.R-project.org/package=rphylopic]([https://CRAN.R-project.org/package=rphylopic)
